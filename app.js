@@ -7,10 +7,11 @@ var client = new twitter({
     access_token_secret: process.env.OAUTH_TOKEN_SECRET
 });
 
-var BOT_ID = 'hungrykirby';
+var BOT_ID = 'musicReply';
 client.stream( 'statuses/filter', { track : '@' + BOT_ID }, function( stream ) {
     // フィルターされたデータのストリームを受け取り、ツイートのテキストを表示する
     stream.on( 'data', function( data ) {
+      console.log(data);
         var text = data.text; // ツイートのテキスト
         var textCleaned = text.replace(new RegExp('^@' + BOT_ID + ' '), ''); // アカウント名は不要
         var isMention = (data.in_reply_to_user_id !== null);
