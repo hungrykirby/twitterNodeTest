@@ -7,7 +7,7 @@ var client = new twitter({
     access_token_secret: process.env.OAUTH_TOKEN_SECRET
 });
 
-var BOT_ID = 'musicReply';
+var BOT_ID = 'nega_deg_kun';
 client.stream( 'statuses/filter', { track : '@' + BOT_ID }, function( stream ) {
     // フィルターされたデータのストリームを受け取り、ツイートのテキストを表示する
     stream.on( 'data', function( data ) {
